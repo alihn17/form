@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var permitToGo = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad")
         permitToGo = false
         // Do any additional setup after loading the view, typically from a nib.
         
