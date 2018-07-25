@@ -99,9 +99,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.permitToGo = true
             
             self.performSegue(withIdentifier: "cellGoto", sender: nil)
-            
-//            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "formViewController") as UIViewController
-//            self.present(viewController, animated: false, completion: nil)
+
         }
         editAction.backgroundColor = .blue
         
