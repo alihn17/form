@@ -15,7 +15,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        var plistPath = ""
+        let directories = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as Array
+        let docpath = directories[0] as String
+        plistPath = docpath.appending("/forms.plist")                            // the document path
+        
         // Override point for customization after application launch.
+        let formPlistPath = Bundle.main.path(forResource: "forms", ofType: "plist")
+        let filemanager = FileManager.default
+        if !filemanager.fileExists(atPath: plistPath){
+            do{
+                try filemanager.copyItem(atPath: formPlistPath!, toPath: plistPath)
+            }
+            catch{
+                print("Copy failure")
+            }
+        }else{
+            print("the file already exist")
+        }
         return true
     }
 

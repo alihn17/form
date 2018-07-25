@@ -32,18 +32,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let docpath = directories[0] as String
         plistPath = docpath.appending("/forms.plist")                            // the document path
         
-        // check if the file exist
-        let filemanager = FileManager.default
-        if !filemanager.fileExists(atPath: plistPath){
-            do{
-                try filemanager.copyItem(atPath: formPlistPath!, toPath: plistPath)
-            }
-            catch{
-                print("Copy failure")
-            }
-        }else{
-            print("the file already exist")
-        }
         
         let dicRoot = NSDictionary.init(contentsOfFile: plistPath)
         if let root = dicRoot,root.count >= 1{

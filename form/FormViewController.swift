@@ -82,18 +82,7 @@ class FormViewController: UIViewController, UITextFieldDelegate {
         self.nameTextField.delegate = self
         self.familyTextField.delegate = self
         // Do any additional setup after loading the view.
-        let formPlistPath = Bundle.main.path(forResource: "forms", ofType: "plist")
-        let filemanager = FileManager.default
-        if !filemanager.fileExists(atPath: plistPath){
-            do{
-                try filemanager.copyItem(atPath: formPlistPath!, toPath: plistPath)
-            }
-            catch{
-                print("Copy failure")
-            }
-        }else{
-            print("the file already exist")
-        }
+        
         
         if pageTitle == 2 {
             let formDictionary = NSMutableDictionary.init(contentsOfFile: plistPath)
